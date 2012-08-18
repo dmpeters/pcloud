@@ -7,7 +7,8 @@ class Facebook(object):
 		app_secret = '7fc59c3c5a7800804b73e9d2c1006d05'
 		app_redirect_url = 'http://127.0.0.1:8000'
 		app_scope = 'id, user_photos'
-		token = ''
+		token = code
+		
 	
 	def get_photos(self, id, albums):
 		
