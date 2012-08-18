@@ -26,8 +26,8 @@ Ppcloud.facebook = function(spec, my) {
 
 	function doLogin() {
 		FB.login(function(response) {
-			if (response.code) {
-				document.location = '/?code=' + response.code;
+			if (response.authResponse.accessToken) {
+				document.location = '/?code=' + response.authResponse.accessToken;
 				//$('#facebook-btn').text("Sync'd");
 			} else if (response.session) {
 				alert("We are in a session");
