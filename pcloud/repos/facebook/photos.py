@@ -23,9 +23,15 @@ class DjangoFacebookPhotos(object):
 				q=SELECT+aid+FROM+{}+WHERE+\
 				uid1=me()&{}'.format(album, token)
 		q = requests.get(query)
+		albums = q
 		
-		# for aid in q:
-		
+		album_books = []
+		for album in albums['data']:
+			book = {}
+			book['aid'] = album['aid']
+			album_books.append(book)
+		return album_books
+	
 	def get_photos(self, id, albums):
 	
 	
