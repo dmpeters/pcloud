@@ -20,28 +20,24 @@ Ppcloud.facebook = function(spec, my) {
 		FB.init({
           appId		: '230178707104819',
           status	: true,
-          cookie	: true,
-          xfbml		: true
+          cookie	: true
         });
 	}
 
 	function doLogin() {
 		FB.login(function(response) {
 			if (response.code) {
-				document.location = '/?fb_code=' + response.code;
-				console.log(response.code);
+				document.location = '/?code=' + response.code;
+				//$('#facebook-btn').text("Sync'd");
 			} else if (response.session) {
+				alert("We are in a session");
 				//document.location = '/?ig_uid=' + response.session.id;
 			}
-		}, {
+		}, 
+		{
+			scope: 'user_photos',
 			response_type : 'code'
 		});
-		
-		FB.api('/me', function(response) {
-		  alert(response.name);
-		});
-		
-		
 	}
 
 	// do not delete //
