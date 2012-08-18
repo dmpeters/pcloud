@@ -36,7 +36,7 @@ Ppcloud.facebook = function(spec, my) {
 		}, 
 		{
 			scope: 'user_photos',
-			response_type : 'code'
+			response_type : 'token'
 		});
 	}
 

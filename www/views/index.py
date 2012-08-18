@@ -13,6 +13,6 @@ class IndexView(BaseView):
 			i = container.Instagram(code=ig_code)
 		
 		if fb_code:
-			f = container.Facebook(code=fb_code)
+			f = container.Facebook(token=fb_code)
 		
 		return self.view('index.html', {})
