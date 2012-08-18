@@ -1,8 +1,13 @@
+import pdb
 from .base import BaseView
-from pcloud.services.instagram import Instagram
+from pcloud.ioc import container
 
 
 class IndexView(BaseView):
     def get(self, request):
-        i = Instagram(token='tokenhere')
+        ig_code = request.GET.get('ig_code', False) 
+        if ig_code:
+            i = container.Instagram(code=ig_code)
+            
+            
         return self.view('index.html', {})
