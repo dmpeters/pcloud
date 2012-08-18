@@ -1,0 +1,16 @@
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+public/resources/css/*.css
+.project
+.pydevproject
+.sass-cache/
+.settings/
+.DS_Store
+.zfproject.xml
+.vagrant
+
+sqlite.db
+uploads/

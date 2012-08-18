@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html class="no-js ie6 medium" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7 medium" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8 medium" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js medium" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta property="og:title" content=" Title Here " />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.mysite.com/" />
+		<meta property="og:image" content="http://www.mysite.com/fb.jpg" />
+		<meta property="og:description" content="FB description here" />
+		<meta property="og:site_name" content="FB Site name" />
+		<title>Site Title</title>
+		<link rel="stylesheet" href="{{RESOURCES_URL}}resources/css/styles.css" />
+
+		{% for file in css %}
+		<link rel="stylesheet" href="{{RESOURCES_URL}}{{file}}" />
+		{% endfor %}
+	</head>
+	<body>
+		{% block base %}
+		{% endblock %}
+		{% for file in javascripts %}
+		<script src="{{RESOURCES_URL}}{{file}}"></script>
+		{% endfor %}
+	</body>
+</html>
