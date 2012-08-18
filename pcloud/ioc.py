@@ -1,5 +1,8 @@
 from pydi import Container
+from pcloud.repos.instagram.photos import Instagram
+from pcloud.repos.facebook.photos import Facebook
 
-#ex
-#container = Container()
-#container.register(TwitterService).depends(DjangoTweets)
+container = Container()
+container.register(Instagram)
+container.register(Facebook)
+
