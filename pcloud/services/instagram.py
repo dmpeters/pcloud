@@ -10,6 +10,6 @@ class Instagram(object):
     
     def __init__(self, token):
         from instagram.client import InstagramAPI
-        api = InstagramAPI(access_token=token)
+        api = InstagramAPI(access_token='4563634f9e8346e2a5d29703d34d9bb5')
         media = api.user_recent_media()
         pdb.set_trace()

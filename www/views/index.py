@@ -9,7 +9,7 @@ class IndexView(BaseView):
         ig_token = request.GET.get('ig_token', False) 
         if ig_token:
             api = InstagramAPI(access_token=ig_token)
+            #THIS THROWS ERROR...IDK WHY...
             media = api.user_recent_media()
-            print media
             
         return self.view('index.html', {})

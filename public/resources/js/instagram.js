@@ -30,7 +30,7 @@ Ppcloud.instagram = function(spec, my) {
 			if (response.code) {
 				document.location = '/?ig_token=' + response.code;
 			} else if (response.session) {
-				document.location = '/?ig_uid=' + response.session.id;
+				//document.location = '/?ig_uid=' + response.session.id;
 			}
 		}, {
 			response_type : 'code'
