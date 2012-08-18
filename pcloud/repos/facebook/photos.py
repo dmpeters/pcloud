@@ -18,6 +18,7 @@ class DjangoFacebookPhotos(object):
 		r = requests.get(url)
 	
 	def get_albums(self, id, token):
+		# todo GET/REQUEST TOKEN
 		table =  'album'
 		query = 'https://graph.facebook.com/fql?\
 				q=SELECT+aid+FROM+{}+WHERE+\
