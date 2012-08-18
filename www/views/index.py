@@ -5,9 +5,9 @@ from pcloud.ioc import container
 
 class IndexView(BaseView):
     def get(self, request):
-        ig_token = request.GET.get('ig_token', False) 
-        if ig_token:
-            i = container.Instagram(access_token=ig_token)
+        ig_code = request.GET.get('ig_code', False) 
+        if ig_code:
+            i = container.Instagram(code=ig_code)
             
             
         return self.view('index.html', {})
