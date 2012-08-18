@@ -1,15 +1,13 @@
 import pdb
-from instagram.client import InstagramAPI
 from .base import BaseView
-#from pcloud.services.instagram import Instagram
+from pcloud.ioc import container
 
 
 class IndexView(BaseView):
     def get(self, request):
         ig_token = request.GET.get('ig_token', False) 
         if ig_token:
-            api = InstagramAPI(access_token=ig_token)
-            #THIS THROWS ERROR...IDK WHY...
-            media = api.user_recent_media()
+            i = container.Instagram(access_token=ig_token)
+            
             
         return self.view('index.html', {})
