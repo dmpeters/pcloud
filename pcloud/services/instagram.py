@@ -1,3 +1,5 @@
+import pdb
+
 
 
 #id 8b6d72cafbfb449fb5330c520b5102ed
@@ -5,5 +7,9 @@
 
 
 class Instagram(object):
+    
     def __init__(self, token):
-        pass
+        from instagram.client import InstagramAPI
+        api = InstagramAPI(access_token=token)
+        media = api.user_recent_media()
+        pdb.set_trace()
