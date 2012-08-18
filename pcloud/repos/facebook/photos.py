@@ -28,8 +28,8 @@ class Facebook(object):
 		return album_books
 		
 		# Get Photos
-		fb_photos []
-		for album in album_books[]:
+		fb_photos = []
+		for album in album_books:
 			#TODO: correct fql query for photos
 			photos = 'query album for photos'
 			p = requests.get(query)
