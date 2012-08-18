@@ -13,14 +13,10 @@ class Facebook(object):
 	def get_photos(self):
 		
 		# Get Photos
-		'''
-		
-		query = 'https://graph.facebook.com/fql?q=\
-				SELECT src_big FROM photo WHERE aid IN (\
-				SELECT aid FROM album WHERE owner=me()\
-				&access_token={})'.format(self.token)
-		'''
-		fql_url = 'https://graph.facebook.com/fql?q=SELECT+src_big+FROM+photo+WHERE+aid+IN+(SELECT+aid+FROM+album+WHERE+owner=me())&access_token={}'.format(self.token)
+		fql_url = 'https://graph.facebook.com/fql?q=\
+					SELECT+src_big+FROM+photo+WHERE+aid+IN+(\
+					SELECT+aid+FROM+album+WHERE+owner=me())\
+					&access_token={}'.format(self.token)
 		q = requests.get(fql_url)
 		photos = q.json
 		print photos
