@@ -28,7 +28,7 @@ Ppcloud.instagram = function(spec, my) {
 	function doLogin() {
 		IG.login(function(response) {
 			if (response.code) {
-				document.location = '/?ig_token=' + response.code;
+				document.location = '/?ig_code=' + response.code;
 			} else if (response.session) {
 				//document.location = '/?ig_uid=' + response.session.id;
 			}
