@@ -20,8 +20,8 @@ class DjangoFacebookPhotos(object):
 	def get_albums(self, id, token):
 		table =  'album'
 		query = 'https://graph.facebook.com/fql?\
-					q=SELECT+aid+FROM+{}+WHERE+\
-					uid1=me()&{}'.format(album, code)
+				q=SELECT+aid+FROM+{}+WHERE+\
+				uid1=me()&{}'.format(album, token)
 		q = requests.get(query)
 		
 		# for aid in q:
