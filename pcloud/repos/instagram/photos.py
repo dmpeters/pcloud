@@ -1,4 +1,3 @@
-import pdb
 from instagram.client import InstagramAPI
 import json
 import requests
@@ -16,7 +15,6 @@ class Instagram(object):
         api = InstagramAPI(access_token=token)
         media = api.user_recent_media()
         
-        #pdb.set_trace()
     def get_photos(self):
         return self.media
         
