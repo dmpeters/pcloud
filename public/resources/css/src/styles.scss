@@ -66,8 +66,9 @@
 // google fonts
 @import url(http://fonts.googleapis.com/css?family=Cabin|Lemon);
 
+html, body{height: 100%;}
+body {background: url(/resources/img/bg.png) no-repeat bottom center;}
 p, span {font-family: 'Cabin', sans-serif;}
-
 .container {text-align: center;}
 .logo {
 	background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
