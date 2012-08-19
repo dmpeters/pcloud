@@ -35,7 +35,7 @@ class StatusNamespace(BaseNamespace):
 
             try:
                 data = json.loads(msg['data'])
-            except ValueError:
+            except TypeError:
                 pass
 
             if data:
@@ -46,3 +46,5 @@ class StatusNamespace(BaseNamespace):
                     #self.emit(event, json.dumps(data))
                 except KeyError:
                     pass
+
+            gevent.sleep(0)
