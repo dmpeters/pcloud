@@ -311,59 +311,59 @@ a:hover {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
-    margin-left: 2.128%;
-    *margin-left: 2.074%; }
+    margin-left: 2.12766%;
+    *margin-left: 2.07447%; }
   /* line 607, src/_mixins.scss */
   .row-fluid [class*="span"]:first-child {
     margin-left: 0; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span12 {
     width: 100.0%;
-    *width: 99.947%; }
+    *width: 99.94681%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span11 {
-    width: 91.489%;
-    *width: 91.436%; }
+    width: 91.48936%;
+    *width: 91.43617%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span10 {
-    width: 82.979%;
-    *width: 82.926%; }
+    width: 82.97872%;
+    *width: 82.92553%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span9 {
-    width: 74.468%;
-    *width: 74.415%; }
+    width: 74.46809%;
+    *width: 74.41489%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span8 {
-    width: 65.957%;
-    *width: 65.904%; }
+    width: 65.95745%;
+    *width: 65.90426%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span7 {
-    width: 57.447%;
-    *width: 57.394%; }
+    width: 57.44681%;
+    *width: 57.39362%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span6 {
-    width: 48.936%;
-    *width: 48.883%; }
+    width: 48.93617%;
+    *width: 48.88298%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span5 {
-    width: 40.426%;
-    *width: 40.372%; }
+    width: 40.42553%;
+    *width: 40.37234%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span4 {
-    width: 31.915%;
-    *width: 31.862%; }
+    width: 31.91489%;
+    *width: 31.8617%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span3 {
-    width: 23.404%;
-    *width: 23.351%; }
+    width: 23.40426%;
+    *width: 23.35106%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span2 {
-    width: 14.894%;
-    *width: 14.84%; }
+    width: 14.89362%;
+    *width: 14.84043%; }
   /* line 614, src/_mixins.scss */
   .row-fluid .span1 {
-    width: 6.383%;
-    *width: 6.33%; }
+    width: 6.38298%;
+    *width: 6.32979%; }
 
 /* line 8, src/_layouts.scss */
 .container {
@@ -1060,39 +1060,61 @@ input[type="checkbox"][readonly] {
   border-color: #c09853; }
 
 /* line 171, src/_mixins.scss */
-.control-group.error > label, .control-group.error .help-block, .control-group.error .help-inline {
+.control-group.error > label,
+.control-group.error .help-block,
+.control-group.error .help-inline {
   color: #b94a48; }
 /* line 179, src/_mixins.scss */
-.control-group.error .checkbox, .control-group.error .radio, .control-group.error input, .control-group.error select, .control-group.error textarea {
+.control-group.error .checkbox,
+.control-group.error .radio,
+.control-group.error input,
+.control-group.error select,
+.control-group.error textarea {
   color: #b94a48;
   border-color: #b94a48; }
   /* line 182, src/_mixins.scss */
-  .control-group.error .checkbox:focus, .control-group.error .radio:focus, .control-group.error input:focus, .control-group.error select:focus, .control-group.error textarea:focus {
+  .control-group.error .checkbox:focus,
+  .control-group.error .radio:focus,
+  .control-group.error input:focus,
+  .control-group.error select:focus,
+  .control-group.error textarea:focus {
     border-color: #953b39;
     -webkit-box-shadow: 0 0 6px #d59392;
     -moz-box-shadow: 0 0 6px #d59392;
     box-shadow: 0 0 6px #d59392; }
 /* line 189, src/_mixins.scss */
-.control-group.error .input-prepend .add-on, .control-group.error .input-append .add-on {
+.control-group.error .input-prepend .add-on,
+.control-group.error .input-append .add-on {
   color: #b94a48;
   background-color: #f2dede;
   border-color: #b94a48; }
 
 /* line 171, src/_mixins.scss */
-.control-group.success > label, .control-group.success .help-block, .control-group.success .help-inline {
+.control-group.success > label,
+.control-group.success .help-block,
+.control-group.success .help-inline {
   color: #468847; }
 /* line 179, src/_mixins.scss */
-.control-group.success .checkbox, .control-group.success .radio, .control-group.success input, .control-group.success select, .control-group.success textarea {
+.control-group.success .checkbox,
+.control-group.success .radio,
+.control-group.success input,
+.control-group.success select,
+.control-group.success textarea {
   color: #468847;
   border-color: #468847; }
   /* line 182, src/_mixins.scss */
-  .control-group.success .checkbox:focus, .control-group.success .radio:focus, .control-group.success input:focus, .control-group.success select:focus, .control-group.success textarea:focus {
+  .control-group.success .checkbox:focus,
+  .control-group.success .radio:focus,
+  .control-group.success input:focus,
+  .control-group.success select:focus,
+  .control-group.success textarea:focus {
     border-color: #356635;
     -webkit-box-shadow: 0 0 6px #7aba7b;
     -moz-box-shadow: 0 0 6px #7aba7b;
     box-shadow: 0 0 6px #7aba7b; }
 /* line 189, src/_mixins.scss */
-.control-group.success .input-prepend .add-on, .control-group.success .input-append .add-on {
+.control-group.success .input-prepend .add-on,
+.control-group.success .input-append .add-on {
   color: #468847;
   background-color: #dff0d8;
   border-color: #468847; }
@@ -1117,7 +1139,7 @@ select:focus:required:invalid {
   padding: 17px 20px 18px;
   margin-top: 18px;
   margin-bottom: 18px;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   border-top: 1px solid #e5e5e5;
   *zoom: 1; }
   /* line 15, src/_mixins.scss */
@@ -1499,7 +1521,7 @@ table {
 /* line 141, src/_tables.scss */
 .table tbody tr:hover td,
 .table tbody tr:hover th {
-  background-color: #f5f5f5; }
+  background-color: whitesmoke; }
 
 /* line 153, src/_tables.scss */
 table .span1 {
@@ -2432,7 +2454,7 @@ button.close {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: middle;
   cursor: pointer;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   background-image: -moz-linear-gradient(top, white, #e6e6e6);
   background-image: -ms-linear-gradient(top, white, #e6e6e6);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
@@ -3713,12 +3735,12 @@ input[type="submit"].btn {
   margin: 0 0 18px;
   list-style: none;
   background-color: #fbfbfb;
-  background-image: -moz-linear-gradient(top, white, #f5f5f5);
-  background-image: -ms-linear-gradient(top, white, #f5f5f5);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#f5f5f5));
-  background-image: -webkit-linear-gradient(top, white, #f5f5f5);
-  background-image: -o-linear-gradient(top, white, #f5f5f5);
-  background-image: linear-gradient(top, white, #f5f5f5);
+  background-image: -moz-linear-gradient(top, white, whitesmoke);
+  background-image: -ms-linear-gradient(top, white, whitesmoke);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(whitesmoke));
+  background-image: -webkit-linear-gradient(top, white, whitesmoke);
+  background-image: -o-linear-gradient(top, white, whitesmoke);
+  background-image: linear-gradient(top, white, whitesmoke);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f2f2f2', GradientType=0);
   border: 1px solid #ddd;
@@ -4326,12 +4348,12 @@ a.label:hover, a.badge:hover {
   height: 18px;
   margin-bottom: 18px;
   background-color: #f6f6f6;
-  background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
-  background-image: -ms-linear-gradient(top, #f5f5f5, #f9f9f9);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
-  background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
-  background-image: -o-linear-gradient(top, #f5f5f5, #f9f9f9);
-  background-image: linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -moz-linear-gradient(top, whitesmoke, #f9f9f9);
+  background-image: -ms-linear-gradient(top, whitesmoke, #f9f9f9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(whitesmoke), to(#f9f9f9));
+  background-image: -webkit-linear-gradient(top, whitesmoke, #f9f9f9);
+  background-image: -o-linear-gradient(top, whitesmoke, #f9f9f9);
+  background-image: linear-gradient(top, whitesmoke, #f9f9f9);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#f6f6f6', GradientType=0);
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -4723,13 +4745,8 @@ p, span, button {
   /* line 113, src/styles.scss */
   .container footer p {
     text-align: left;
-<<<<<<< HEAD
     margin: 0px 15%; }
-  /* line 107, src/styles.scss */
-=======
-    margin: 0px 20%; }
   /* line 118, src/styles.scss */
->>>>>>> minor updates to styles/ui
   .container footer ul li {
     list-style: none;
     display: inline;
@@ -4773,7 +4790,7 @@ p, span, button {
   .container footer ul li#aws a {
     background-position: -436px 0;
     width: 78px; }
-  /* line 127, src/styles.scss */
+  /* line 138, src/styles.scss */
   .container footer ul li#socket a {
     background-position: -518px 0;
     width: 86px; }
