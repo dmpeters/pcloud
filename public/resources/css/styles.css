@@ -4701,57 +4701,75 @@ p, span, button {
   position: relative;
   z-index: 1; }
 
-/* line 96, src/styles.scss */
+/* line 95, src/styles.scss */
+.container #link {
+  font-family: Helvetica, Arial, sans-serif;
+  font-wdith: 800;
+  font-size: 23px;
+  text-decoration: underline;
+  margin-top: 10px; }
+
+/* line 102, src/styles.scss */
+.container #progress {
+  width: 50%;
+  margin: 0 auto; }
+
+/* line 107, src/styles.scss */
 .container footer {
   position: absolute;
   width: 940px;
   bottom: 2px;
   z-index: 0; }
-  /* line 102, src/styles.scss */
+  /* line 113, src/styles.scss */
   .container footer p {
     text-align: left;
+<<<<<<< HEAD
     margin: 0px 15%; }
   /* line 107, src/styles.scss */
+=======
+    margin: 0px 20%; }
+  /* line 118, src/styles.scss */
+>>>>>>> minor updates to styles/ui
   .container footer ul li {
     list-style: none;
     display: inline;
     margin: 0px 6px; }
-    /* line 111, src/styles.scss */
+    /* line 122, src/styles.scss */
     .container footer ul li a {
       background: transparent url(/resources/img/tech.png) no-repeat scroll 0 0;
       text-indent: -9000px;
       text-decoration: none;
       display: inline-block;
       height: 30px; }
-  /* line 119, src/styles.scss */
+  /* line 130, src/styles.scss */
   .container footer ul li#python a {
     background-position: 0 0;
     width: 36px; }
-  /* line 120, src/styles.scss */
+  /* line 131, src/styles.scss */
   .container footer ul li#django a {
     background-position: -38px 0px;
     width: 62px; }
-  /* line 121, src/styles.scss */
+  /* line 132, src/styles.scss */
   .container footer ul li#celery a {
     background-position: -106px 0;
     width: 29px; }
-  /* line 122, src/styles.scss */
+  /* line 133, src/styles.scss */
   .container footer ul li#fabric a {
     background-position: -144px 0;
     width: 47px; }
-  /* line 123, src/styles.scss */
+  /* line 134, src/styles.scss */
   .container footer ul li#redis a {
     background-position: -200px 0;
     width: 76px; }
-  /* line 124, src/styles.scss */
+  /* line 135, src/styles.scss */
   .container footer ul li#gevent a {
     background-position: -280px 0;
     width: 62px; }
-  /* line 125, src/styles.scss */
+  /* line 136, src/styles.scss */
   .container footer ul li#heroku a {
     background-position: -342px 0;
     width: 90px; }
-  /* line 126, src/styles.scss */
+  /* line 137, src/styles.scss */
   .container footer ul li#aws a {
     background-position: -436px 0;
     width: 78px; }

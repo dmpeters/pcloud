@@ -56,6 +56,9 @@ Ppcloud.application = function() {
 	}
 
 	function doStartDownload() {
+		CACHE.$progress.addClass('hide');
+		CACHE.$link_context.addClass('hide');
+
 		var data = {
 			'ig_code':ig_code,
 			'fb_code':fb_token,
@@ -70,7 +73,7 @@ Ppcloud.application = function() {
 			success: onFormSubmit,
 			error: onFormSubmitError
 		});
-		CACHE.$progress.removeClass('hide');
+
 		hideStartBtn();
 	}
 	function onFormSubmitError(data){
@@ -78,6 +81,7 @@ Ppcloud.application = function() {
 		// TODO: handle
 	}
 	function onFormSubmit(data){
+		CACHE.$progress.removeClass('hide');
 		resourceSocket.register(data.token);
 	}
 
@@ -115,7 +119,8 @@ Ppcloud.application = function() {
 		
 		jq_link.attr('href', url);
 		// jq_progress.addClass('hide');
-		jq_progress.fadeOut('fast', function(){
+		CACHE.$progress.fadeOut('fast', function(){
+			CACHE.$progress.css({'display': ''}).addClass('hide');
 			CACHE.$link_context.removeClass('hide');
 		});
 	}

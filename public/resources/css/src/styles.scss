@@ -92,6 +92,17 @@ p, span, button {font-family: 'Cabin', sans-serif;}
 		z-index: 1;
 	}
 }
+.container #link{
+	font-family: Helvetica, Arial, sans-serif;
+	font-wdith: 800;
+	font-size: 23px;
+	text-decoration: underline;
+	margin-top: 10px;
+}
+.container #progress{
+	width: 50%;
+	margin: 0 auto;
+}
 
 .container footer {
 	position: absolute;
