@@ -16,3 +16,6 @@ def reset():
     local('python manage.py createsuperuser --username=user --email=user@host.com')
 
 
+@task
+def celery():
+	local('python manage.py celeryd worker --loglevel=INFO')

@@ -14,6 +14,6 @@ urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
     (r'^resources/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'public/resources'}),
     url(r'^admin/', include(admin.site.urls)),
-    
+    url("", include("status.urls")),
     url(r'^$', IndexView.as_view(), name='index'),
 )
