@@ -4,7 +4,7 @@ import css, heroku
 @task
 def run():
     local("ps ax | grep [s]ocketio | awk '{ print $1 }' | xargs kill -9")
-    local('python manage.py runserver_socketio')
+    local('sudo python manage.py runserver_socketio 0.0.0.0:80')
 
 @task
 def run_server_only():
