@@ -8,6 +8,7 @@ class IndexView(BaseView):
 		return self.view('index.html')
 	
 	def post(self,request):
+		#ADAM....i need a hand here how to deal w/ this...The response should be a socket connection...
 		ig_code = request.POST.get('ig_code', False)
 		fb_code = request.POST.get('fb_code', False)
 		
