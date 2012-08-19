@@ -55,9 +55,14 @@ Ppcloud.application = function() {
 		$.ajax({
 			type : 'POST',
 			url : '/',
-			data : data
+			data : data, 
+			success: onFormSubmit
 		});
 		CACHE.$progress.removeClass('hide')
+	}
+	
+	function onFormSubmit(asdf){
+		console.log(asdf)
 	}
 
 	// do not delete //

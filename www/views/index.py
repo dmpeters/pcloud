@@ -1,3 +1,4 @@
+import os
 from www.forms.index import ActionForm
 from .base import BaseFormView
 from pcloud.ioc import container
@@ -16,5 +17,6 @@ class IndexView(BaseFormView):
             return self.redirect('/')
 
     def form_valid(self, form):
-        form.submit()
-        return self.json({"ok": True, "token": "12345"})
+        reciept = os.urandom(16).encode('hex') 
+        form.submit(reciept)
+        return self.json({"ok": True, "token": reciept})
