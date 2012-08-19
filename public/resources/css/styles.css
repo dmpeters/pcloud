@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans);
 /*
  * Bootstrap v2.0.4
  *
@@ -4658,3 +4659,20 @@ a.label:hover, a.badge:hover {
 /* line 21, src/_utilities.scss */
 .invisible {
   visibility: hidden; }
+
+/* line 69, src/styles.scss */
+p, span {
+  font-family: 'Open Sans', sans-serif; }
+
+/* line 70, src/styles.scss */
+h1 {
+  font-family: 'Fredoka One', cursive; }
+
+/* line 71, src/styles.scss */
+.container {
+  text-align: center; }
+
+/* line 72, src/styles.scss */
+.logo {
+  background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
+  margin: 0px auto; }

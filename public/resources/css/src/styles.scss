@@ -63,3 +63,13 @@
 
 //@import "datepicker";
 
+// google fonts
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans);
+
+p, span {font-family: 'Open Sans', sans-serif;}
+h1 {font-family: 'Fredoka One', cursive;}
+.container {text-align: center;}
+.logo {
+	background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
+	margin: 0px auto;
+}
