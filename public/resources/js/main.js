@@ -100,6 +100,12 @@ Ppcloud.application = function() {
 		var jq_bar      = CACHE.$progress.find('.bar');
 		
 		jq_bar.css({'width': percent + '%'});
+		console.log(percent);
+		if(percent === 100){
+			setTimeout(function(){
+				jq_progress.parent().removeClass('progress').addClass('progress-striped');
+			}, 600);
+		}
 	}
 	function onResourceReady(e){
 		var data = e.data;
