@@ -67,16 +67,20 @@ Ppcloud.application = function() {
 			type : 'POST',
 			url : '/',
 			data : data, 
-			success: onFormSubmit
+			success: onFormSubmit,
+			error: onFormSubmitError
 		});
 		CACHE.$progress.removeClass('hide');
 		hideStartBtn();
 	}
-	
+	function onFormSubmitError(data){
+		console.log('form submit ERROR!', data);
+	}
 	function onFormSubmit(data){
+		
 		console.log('form submit OK!', data);
 
-		pcloud_socket.sendToken(data);
+		pcloud_socket.sendToken(data.token);
 	}
 
 	__init__();

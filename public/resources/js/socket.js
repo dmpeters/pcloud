@@ -63,8 +63,7 @@ Ppcloud.socket = function(){
 		// console.log('resource ready', data);
 		dispatcher.dispatcher(events.Ready, data);
 	}
-
-
+	
 	return __new__();
 
 }
