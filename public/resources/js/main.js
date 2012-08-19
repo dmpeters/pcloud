@@ -48,7 +48,9 @@ Ppcloud.application = function() {
 		data = {
 			'ig_code':ig_code,
 			'fb_token':fb_token,
+            'csrfmiddlewaretoken': $('form input[name="csrfmiddlewaretoken"]').val()
 		}
+
 		//START SOCKET CONNECTION HERE!!!!!!
 		$.ajax({
 			type : 'POST',

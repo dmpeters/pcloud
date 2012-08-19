@@ -159,6 +159,7 @@ INSTALLED_APPS = (
     'djcelery',
     'pcloud',
     'gunicorn',
+    'status',
 )
 
 # A sample logging configuration. The only tangible logging
