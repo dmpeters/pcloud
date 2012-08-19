@@ -17,6 +17,4 @@ class IndexView(BaseFormView):
 
     def form_valid(self, form):
         form.submit()
-        return self.view('receipt.json',
-                         {"status": "true", "token": "12335"},
-                         content_type="application/json")
+        return self.json({"ok": True, "token": "12345"})
