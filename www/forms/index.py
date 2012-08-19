@@ -9,5 +9,5 @@ class ActionForm(forms.Form):
     def submit(self, receipt):
         ig_code = self.cleaned_data['ig_code']
         fb_code = self.cleaned_data['fb_code']
-        get_photos.delay(receipt=receipt, instagram=ig_code, facebook=fb_code)
+        get_photos.delay(receipt, ig_code, fb_code)
         

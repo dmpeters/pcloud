@@ -47,7 +47,7 @@ Ppcloud.application = function() {
 	function doStartDownload() {
 		data = {
 			'ig_code':ig_code,
-			'fb_token':fb_token,
+			'fb_code':fb_token,
             'csrfmiddlewaretoken': $('form input[name="csrfmiddlewaretoken"]').val()
 		}
 
