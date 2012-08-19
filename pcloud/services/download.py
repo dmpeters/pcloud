@@ -38,6 +38,10 @@ class DownloadService(dict):
 
         meta['total'] = total
 
+        out_path = "out/%s" % receipt
+        if not os.path.exists(out_path):
+            os.makedirs(out_path)
+
         self.notify_service.send_notification('progress_meta', meta)
         pool = Pool(3)
         pool.map(self._fetch_image, resources)
@@ -50,7 +54,6 @@ class DownloadService(dict):
 
     def _fetch_image(self, resource):
         src = resource.url
-        #receipt = resource.receipt
 
         filename = os.path.basename(src)
         response = urllib2.urlopen(src)
@@ -58,8 +61,8 @@ class DownloadService(dict):
        #where should this be saved?  right now it's just proj_root/out
        # probz should pass the receipt here too so it could be:
        # proj_root/out/{{receipt}}/*
-        os.mkdir('out')
-        local_path = 'out/{}'.format(filename)
+
+        local_path = 'out/%s/%s' % (resource.receipt, filename)
         self.local_path_arr.append(local_path)
         with open(local_path, 'w+') as f:
             f.write(response.read())
