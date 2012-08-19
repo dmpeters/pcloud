@@ -6,7 +6,8 @@ Ppcloud.application = function() {
 	var fb, ig;
 	var fb_token = ''
 	var ig_code = ''
-	var pcloud_socket = Ppcloud.socket();
+	var resourceSocket = Ppcloud.ResourceSocket();
+	var resourceEvents = Ppcloud.ResourceEvents;
 
 	var CACHE = {
 		$done : $('#done'),
@@ -25,10 +26,9 @@ Ppcloud.application = function() {
 			doStartDownload();
 		});
 
-		pcloud_socket.on(Ppcloud.SocketEvents.Connected, onResourceConnected);		
-		pcloud_socket.on(Ppcloud.SocketEvents.Progress, onResourceProgress);
-		pcloud_socket.on(Ppcloud.SocketEvents.Complete, onResourceComplete);
-		pcloud_socket.on(Ppcloud.SocketEvents.Ready, onResourceReady);
+		resourceSocket.on(resourceEvents.Connected, onResourceConnected);		
+		resourceSocket.on(resourceEvents.Progress, onResourceProgress);
+		resourceSocket.on(resourceEvents.Ready, onResourceReady);
 	}
 
 	function onFbConnect(c) {
@@ -60,9 +60,6 @@ Ppcloud.application = function() {
             'csrfmiddlewaretoken': $('form input[name="csrfmiddlewaretoken"]').val()
 		}
 
-		console.log('start download OK!', data);
-
-
 		//START SOCKET CONNECTION HERE!!!!!!
 		$.ajax({
 			type : 'POST',
@@ -78,10 +75,7 @@ Ppcloud.application = function() {
 		console.log('form submit ERROR!', data);
 	}
 	function onFormSubmit(data){
-		
-		console.log('form submit OK!', data);
-
-		pcloud_socket.sendToken(data.token);
+		resourceSocket.register(data.token);
 	}
 
 	// ppcloud socket event delegates
@@ -92,11 +86,6 @@ Ppcloud.application = function() {
 	function onResourceProgress(e){
 		var data = e.data;
 		console.log('resource progress!', data);
-
-	}
-	function onResourceComplete(e){
-		var data = e.data;
-		console.log('resource complete!', data);
 	}
 	function onResourceReady(e){
 		var data = e.data;
