@@ -47,7 +47,7 @@ if ENV == 'staging':
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 
-GRAPPELLI_ADMIN_TITLE = 'FX Win8 Admin'
+GRAPPELLI_ADMIN_TITLE = 'pCloud Admin'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
