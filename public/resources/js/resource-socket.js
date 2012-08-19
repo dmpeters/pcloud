@@ -17,8 +17,9 @@ Ppcloud.ResourceSocket = function(){
 
 	var status = {
 		'meta': {},
-		'progress_percent': 0,
+		'percent': 0,
 		'pending': 0,
+		'total': 0,
 		'last_completed': {'network':false, 'url':false}
 	}
 
@@ -53,9 +54,11 @@ Ppcloud.ResourceSocket = function(){
 	}
 	// payload {'facebook':22, 'instagram': 10, 'total': 32}
 	function resourceMetaWasReceived(data){
-		status.meta = data;
-		status.pending = data.total;
+		var meta = JSON.parse(data);
 
+		status.meta = meta;
+		status.pending = meta.total;
+		status.total = meta.total;
 	}
 	// payload {'network': 'facebook', 'url': 'http://the-path-to-img/img.jpg'}
 	function resourceCompleted(data){

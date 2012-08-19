@@ -86,6 +86,7 @@ Ppcloud.application = function() {
 	function onResourceProgress(e){
 		var data = e.data;
 		console.log('resource progress!', data);
+		console.log(data.percent);
 	}
 	function onResourceReady(e){
 		var data = e.data;
