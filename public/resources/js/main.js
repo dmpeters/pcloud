@@ -6,6 +6,7 @@ Ppcloud.application = function() {
 	var fb, ig;
 	var fb_token = ''
 	var ig_code = ''
+	var pcloud_socket = Ppcloud.socket();
 
 	var CACHE = {
 		$done : $('#done'),
@@ -15,31 +16,36 @@ Ppcloud.application = function() {
 	/* initialization */
 	function __init__() {
 		fb = Ppcloud.facebook()
-		fb.onConnect = onFbConnect
 		ig = Ppcloud.instagram()
+		
+		fb.onConnect = onFbConnect
 		ig.onConnect = onIgConnect
 
 		CACHE.$done.on('click', function() {
-			doStartDownload()
-		})
+			doStartDownload();
+		});
+
+		pcloud_socket.on(Ppcloud.SocketEvents.Connected, function(data){
+			console.log('ppcloud socket connection OK!', data);
+		});
 	}
 
 	function onFbConnect(c) {
 		fb_token = c
-		connected()
+		connected();
 	}
 
 	function onIgConnect(c) {
 		ig_code = c
-		connected()
+		connected();
 	}
 
 	function connected() {
-		showStartBtn()
+		showStartBtn();
 	}
 
 	function showStartBtn() {
-		CACHE.$done.removeClass('hide')
+		CACHE.$done.removeClass('hide');
 	}
 
 	function doStartDownload() {
@@ -49,6 +55,9 @@ Ppcloud.application = function() {
             'csrfmiddlewaretoken': $('form input[name="csrfmiddlewaretoken"]').val()
 		}
 
+		console.log('start download OK!', data);
+
+
 		//START SOCKET CONNECTION HERE!!!!!!
 		$.ajax({
 			type : 'POST',
@@ -56,11 +65,13 @@ Ppcloud.application = function() {
 			data : data, 
 			success: onFormSubmit
 		});
-		CACHE.$progress.removeClass('hide')
+		CACHE.$progress.removeClass('hide');
 	}
 	
 	function onFormSubmit(data){
-		console.log(data);
+		console.log('form submit OK!', data);
+
+		pcloud_socket.sendToken(data);
 	}
 
 	__init__();
