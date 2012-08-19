@@ -1,4 +1,5 @@
 import logging
+import json
 import gevent
 import redis
 from socketio.namespace import BaseNamespace
@@ -30,8 +31,18 @@ class StatusNamespace(BaseNamespace):
         pubsub.subscribe(token)
 
         for msg in pubsub.listen():
-            data = msg['data']
-            print('Got Data from PubSub!', data)
-            print('attempting to emit!')
-            self.emit('message', data)
-            gevent.sleep(0)
+            data = None
+
+            try:
+                data = json.loads(msg['data'])
+            except ValueError:
+                pass
+
+            if data:
+                try:
+                    event = data['event']
+                    data = data['data']
+                    gevent.spawn(self.emit, event, json.dumps(data))
+                    #self.emit(event, json.dumps(data))
+                except KeyError:
+                    pass
