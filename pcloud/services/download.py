@@ -46,9 +46,9 @@ class DownloadService(dict):
 
 
     def _fetch_image(self, resource, receipt):
-        url = resource.url
+        src = resource.url
 
-        src = url.replace('https', 'http')
+        #src = src.replace('https', 'http')
 
         filename = os.path.basename(src)
         response = urllib2.urlopen(src)
