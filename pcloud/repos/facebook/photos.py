@@ -8,7 +8,6 @@ class Facebook(object):
 		self.app_redirect_url = 'http://127.0.0.1:8000'
 		self.app_scope = 'id, user_photos'
 		self.token = token
-		self.get_photos()
 	
 	def get_photos(self):
 		
@@ -19,4 +18,7 @@ class Facebook(object):
 					&access_token={}'.format(self.token)
 		q = requests.get(fql_url)
 		photos = q.json
-		print photos
+		response = []
+		for img in photos['data']:
+			response.append(img['src_big'])
+		return response

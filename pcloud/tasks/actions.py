@@ -1,10 +1,23 @@
 from celery import task
-
+from pcloud.ioc import container
 
 @task
 def get_photos(receipt, instagram=None, facebook=None):
-    print(instagram)
-    print(facebook)
+    photos = []
+    
+    if facebook:
+        fb = container.Facebook(token=facebook)
+        photos += fb.get_photos()
+    
+    if instagram:
+        ig = container.Instagram(code=instagram)
+        photos += ig.get_photos()
+    
+    print(photos)
+    #print(receipt)
+    
+    
+    
     # twitter.s(show_schedule.show).apply_async()
     # facebook.s(show_schedule.show).apply_async()
     # get_glue.s(show_schedule.show).apply_async()
