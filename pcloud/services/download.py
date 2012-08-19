@@ -43,7 +43,6 @@ class DownloadService(dict):
         pool.map(self._fetch_image, resources)
 
         # start zipping and transfering to S3 here
-        # ... do that ...
         z = ZipS3()
         zip_path = z.zip(self.local_path_arr,receipt)
         final_data = {'url': zip_path}
@@ -59,6 +58,7 @@ class DownloadService(dict):
        #where should this be saved?  right now it's just proj_root/out
        # probz should pass the receipt here too so it could be:
        # proj_root/out/{{receipt}}/*
+        os.mkdir('out')
         local_path = 'out/{}'.format(filename) 
         self.local_path_arr.append(local_path)
         with open(local_path, 'w+') as f:

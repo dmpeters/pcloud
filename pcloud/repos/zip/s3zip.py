@@ -24,7 +24,7 @@ class ZipS3(object):
         k.key = zip_name
         k.set_contents_from_filename(zip_path)
         k.set_acl('public-read')
-        response = 'https://s3.amazonaws.com/' +'/'+settings.AWS_STORAGE_BUCKET_NAME +'/' +zip_name
+        response = 'https://s3.amazonaws.com/' +settings.AWS_STORAGE_BUCKET_NAME +'/' +zip_name
         
         os.remove(zip_path)
         
