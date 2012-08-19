@@ -4,6 +4,10 @@ Ppcloud.instagram = function() {
 	var my = my || {};
 	var self = {};
 	
+	CACHE = {
+		$igBtn:$('#instagram-btn'),
+	}
+	
 
 	function __new__() {
 		igInit();
@@ -32,6 +36,7 @@ Ppcloud.instagram = function() {
 			if (response.code) {
 				//document.location = '/?ig_code=' + response.code;
 				self.onConnect(response.code)
+				CACHE.$igBtn.html("Instagram Sync'd");
 			} else if (response.session) {
 				//document.location = '/?ig_uid=' + response.session.id;
 			}

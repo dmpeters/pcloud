@@ -53,9 +53,7 @@ Ppcloud.application = function() {
 		$.ajax({
 			type : 'POST',
 			url : '/',
-			data : data,
-			success : success,
-			dataType : dataType
+			data : data
 		});
 		CACHE.$progress.removeClass('hide')
 	}

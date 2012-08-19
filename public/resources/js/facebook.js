@@ -28,12 +28,10 @@ Ppcloud.facebook = function() {
 		FB.login(function(response) {
 			
 			if (response.authResponse.accessToken) {
-				//document.location = '/?fb_code=' + response.authResponse.accessToken;
-				//$('#facebook-btn').text("Sync'd");
 				self.onConnect(response.authResponse.accessToken)
+				CACHE.$igBtn.html("Facebook Sync'd");
 			} else if (response.session) {
 				alert("We are in a session");
-				//document.location = '/?ig_uid=' + response.session.id;
 			}
 		}, 
 		{
