@@ -11,7 +11,8 @@ Ppcloud.application = function() {
 
 	var CACHE = {
 		$done : $('#done'),
-		$progress : $('#progress')
+		$progress : $('#progress'),
+		$link_context: $('#link')
 	}
 
 	/* initialization */
@@ -55,7 +56,7 @@ Ppcloud.application = function() {
 	}
 
 	function doStartDownload() {
-		data = {
+		var data = {
 			'ig_code':ig_code,
 			'fb_code':fb_token,
             'csrfmiddlewaretoken': $('form input[name="csrfmiddlewaretoken"]').val()
@@ -73,7 +74,8 @@ Ppcloud.application = function() {
 		hideStartBtn();
 	}
 	function onFormSubmitError(data){
-		console.log('form submit ERROR!', data);
+		// console.log('form submit ERROR!', data);
+		// TODO: handle
 	}
 	function onFormSubmit(data){
 		resourceSocket.register(data.token);
@@ -82,13 +84,14 @@ Ppcloud.application = function() {
 	// ppcloud socket event delegates
 	function onResourceConnected(e){
 		var data = e.data;
-		console.log('resoucre connected!', data);
 	}
 	function onResourceMetaReceived(e){
-		console.log('resource meta received', data);
-
+		var data = e.data;
 		var jq_progress = CACHE.$progress.find('.progress');
+		var jq_bar      = CACHE.$progress.find('.bar');
+
 		jq_progress.removeClass('progress-striped').addClass('progress');
+		jq_bar.css({'width': '0%'})
 	}
 	function onResourceProgress(e){
 		var data        = e.data;
@@ -97,16 +100,18 @@ Ppcloud.application = function() {
 		var jq_bar      = CACHE.$progress.find('.bar');
 		
 		jq_bar.css({'width': percent + '%'});
-
-		// show busy bar (100%);
-		// on first progress update progress bar
-		// on 100% bring back to busy bar
-		// on ready kill loader
-		// display link
 	}
 	function onResourceReady(e){
 		var data = e.data;
-		console.log('resource ready!', data);
+		var url = data.url;
+		var jq_progress = CACHE.$progress.find('.progress');
+		var jq_link = CACHE.$link_context.find('.link');
+		
+		jq_link.attr('href', url);
+		// jq_progress.addClass('hide');
+		jq_progress.fadeOut('fast', function(){
+			CACHE.$link_context.removeClass('hide');
+		});
 	}
 
 	__init__();
