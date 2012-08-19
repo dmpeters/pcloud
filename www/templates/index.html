@@ -12,23 +12,25 @@
 		<br />
 		<br />
 	</section>
-	<section id="facebook">
-
-		<button type="submit" class="btn btn-primary" id='facebook-btn'>
-			<span>Get Sync'd with Facebook</span>
-		</button>
-		<br />
-		<br />
-		<button type="submit" class="btn btn-primary" id='instagram-btn'>
-			Get Sync'd with Instagram
-		</button>
-		<!--
-		Thought to add icons to signal whether logged in
-		<span class="icon-thumbs-up">&nbsp;</span>
-		or
-		<span class="icon-ok">&nbsp;</span>
-		-->
-	</section>
+    <form>
+    	<section id="facebook">
+    		<button type="submit" class="btn btn-primary" id='facebook-btn'>
+    			<span>Get Sync'd with Facebook</span>
+    		</button>
+    		<br />
+    		<br />
+    		<button type="submit" class="btn btn-primary" id='instagram-btn'>
+    			Get Sync'd with Instagram
+    		</button>
+    		<!--
+    		Thought to add icons to signal whether logged in
+    		<span class="icon-thumbs-up">&nbsp;</span>
+    		or
+    		<span class="icon-ok">&nbsp;</span>
+    		-->
+    	</section>
+        {% csrf_token %}
+    </form>
 	<br />
 	<section id="progress" class='hide'>
 		<div class="progress progress-striped active">

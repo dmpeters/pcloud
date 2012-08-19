@@ -1,23 +1,14 @@
-import pdb
-from .base import BaseView
+from www.forms.index import ActionForm
+from .base import BaseFormView
 from pcloud.ioc import container
 
 
-class IndexView(BaseView):
-	def get(self, request):
-		return self.view('index.html')
-	
-	def post(self,request):
-		#ADAM....i need a hand here how to deal w/ this...The response should be a socket connection...
-		ig_code = request.POST.get('ig_code', False)
-		fb_code = request.POST.get('fb_code', False)
-		
-		if ig_code:
-			i = container.Instagram(code=ig_code)
-		
-		if fb_code:
-			f = container.Facebook(token=fb_code)
-			
-		viewmodel = {'downloading':True}
-		#THIS GETS CALLED BY AJAX...adam?  how u wanna deal w/ this?
-		return self.view('index.html')
+class IndexView(BaseFormView):
+    form_class = ActionForm
+
+    def get(self, request):
+        return self.view('index.html')
+
+    def form_valid(self, form):
+        form.submit()
+        return self.view('index.html')
