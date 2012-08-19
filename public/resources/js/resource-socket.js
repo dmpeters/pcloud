@@ -4,6 +4,7 @@ var Ppcloud = Ppcloud || {};
 Ppcloud.ResourceEvents = {
 	"Connected": 'connected',
 	"Progress":  'progress',
+	'MetaReceived': 'metaReceived',
 	"Ready":     'ready',
 	"Error":     'error'
 };
@@ -34,6 +35,7 @@ Ppcloud.ResourceSocket = function(){
 	}
 	function __init__(){
 		socket = io.connect('/status');
+		
 		dispatcher = Itsy.Dispatcher();
 
 		// socket connection stuff
@@ -59,6 +61,8 @@ Ppcloud.ResourceSocket = function(){
 		status.meta = meta;
 		status.pending = meta.total;
 		status.total = meta.total;
+
+		dispatcher.dispatch(events.MetaReceived, status);
 	}
 	// payload {'network': 'facebook', 'url': 'http://the-path-to-img/img.jpg'}
 	function resourceCompleted(data){

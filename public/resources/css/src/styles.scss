@@ -73,7 +73,6 @@ p, span, button {font-family: 'Cabin', sans-serif;}
 #logo {
 	background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
 	margin: 0px auto;
-}
 	h1 {
 		color: black;
 		font-family: 'Lemon';
@@ -83,5 +82,38 @@ p, span, button {font-family: 'Cabin', sans-serif;}
 		text-align: left;
 		text-transform: lowercase;
 	}
+}
 #done {padding: 12px; font-size: 20px;}
 #share {position: relative; top: -42px; right: 194px;}
+
+footer {
+	position: absolute;
+	width: 940px;
+	bottom: 2px;
+	p {
+		text-align: left;
+		margin: 0px 20%;
+	}
+	ul {
+		li {
+			list-style: none;
+			display: inline;
+			margin: 0px 6px;
+			a {
+				background: transparent url(/resources/img/tech.png) no-repeat scroll 0 0;
+				text-indent: -9000px;
+				text-decoration: none;
+				display: inline-block;
+				height: 30px;
+			}
+		}
+		li#python a		{background-position: 0 0; width: 36px;}
+		li#django a		{background-position: -38px 0px; width: 62px;}
+		li#celery a		{background-position: -106px 0; width: 29px;}
+		li#fabric a		{background-position: -144px 0; width: 47px;}
+		li#redis a		{background-position: -200px 0; width: 76px;}
+		li#gevent a		{background-position: -280px 0; width: 62px}
+		li#heroku a		{background-position: -342px 0; width: 90px;}
+		li#aws a		{background-position: -436px 0; width: 78px;}
+	}
+}
