@@ -12,15 +12,13 @@ Ppcloud.application = function() {
 		$progress : $('#progress')
 	}
 
-	function __new__() {
+	/* initialization */
+	function __init__() {
 		fb = Ppcloud.facebook()
 		fb.onConnect = onFbConnect
 		ig = Ppcloud.instagram()
 		ig.onConnect = onIgConnect
-	}
 
-	/* initialization */
-	function __init__() {
 		CACHE.$done.on('click', function() {
 			doStartDownload()
 		})
@@ -65,12 +63,10 @@ Ppcloud.application = function() {
 		console.log(data);
 	}
 
-	// do not delete //
-	__new__();
 	__init__();
-	//return self;
-	// #eo do not delete //
 }
+
+// run application
 $(function() {
 	Ppcloud.application()
 })
