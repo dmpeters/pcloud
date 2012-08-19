@@ -4680,16 +4680,15 @@ p, span, button {
 #logo {
   background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
   margin: 0px auto; }
-
-/* line 77, src/styles.scss */
-h1 {
-  color: black;
-  font-family: 'Lemon';
-  font-weight: 700;
-  font-size: 56px;
-  margin: 20px 0 62px 224px;
-  text-align: left;
-  text-transform: lowercase; }
+  /* line 76, src/styles.scss */
+  #logo h1 {
+    color: black;
+    font-family: 'Lemon';
+    font-weight: 700;
+    font-size: 56px;
+    margin: 20px 0 62px 224px;
+    text-align: left;
+    text-transform: lowercase; }
 
 /* line 86, src/styles.scss */
 #done {
@@ -4701,3 +4700,57 @@ h1 {
   position: relative;
   top: -42px;
   right: 194px; }
+
+/* line 89, src/styles.scss */
+footer {
+  position: absolute;
+  width: 940px;
+  bottom: 2px; }
+  /* line 93, src/styles.scss */
+  footer p {
+    text-align: left;
+    margin: 0px 20%; }
+  /* line 98, src/styles.scss */
+  footer ul li {
+    list-style: none;
+    display: inline;
+    margin: 0px 6px; }
+    /* line 102, src/styles.scss */
+    footer ul li a {
+      background: transparent url(/resources/img/tech.png) no-repeat scroll 0 0;
+      text-indent: -9000px;
+      text-decoration: none;
+      display: inline-block;
+      height: 30px; }
+  /* line 110, src/styles.scss */
+  footer ul li#python a {
+    background-position: 0 0;
+    width: 36px; }
+  /* line 111, src/styles.scss */
+  footer ul li#django a {
+    background-position: -38px 0px;
+    width: 62px; }
+  /* line 112, src/styles.scss */
+  footer ul li#celery a {
+    background-position: -106px 0;
+    width: 29px; }
+  /* line 113, src/styles.scss */
+  footer ul li#fabric a {
+    background-position: -144px 0;
+    width: 47px; }
+  /* line 114, src/styles.scss */
+  footer ul li#redis a {
+    background-position: -200px 0;
+    width: 76px; }
+  /* line 115, src/styles.scss */
+  footer ul li#gevent a {
+    background-position: -280px 0;
+    width: 62px; }
+  /* line 116, src/styles.scss */
+  footer ul li#heroku a {
+    background-position: -342px 0;
+    width: 90px; }
+  /* line 117, src/styles.scss */
+  footer ul li#aws a {
+    background-position: -436px 0;
+    width: 78px; }
