@@ -64,12 +64,20 @@
 //@import "datepicker";
 
 // google fonts
-@import url(http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Cabin|Cabin+Sketch:400,700|Lemon);
 
-p, span {font-family: 'Open Sans', sans-serif;}
-h1 {font-family: 'Fredoka One', cursive;}
+p, span {font-family: 'Cabin', sans-serif;}
+
 .container {text-align: center;}
 .logo {
 	background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
 	margin: 0px auto;
 }
+	h1 {
+		color: black;
+		font-family: 'Lemon';
+		font-weight: 700;
+		font-size: 56px;
+		margin: 20px 0 62px 224px;
+		text-align: left;
+	}

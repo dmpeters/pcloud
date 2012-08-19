@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Cabin|Cabin+Sketch:400,700|Lemon);
 /*
  * Bootstrap v2.0.4
  *
@@ -4662,11 +4662,7 @@ a.label:hover, a.badge:hover {
 
 /* line 69, src/styles.scss */
 p, span {
-  font-family: 'Open Sans', sans-serif; }
-
-/* line 70, src/styles.scss */
-h1 {
-  font-family: 'Fredoka One', cursive; }
+  font-family: 'Cabin', sans-serif; }
 
 /* line 71, src/styles.scss */
 .container {
@@ -4676,3 +4672,12 @@ h1 {
 .logo {
   background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
   margin: 0px auto; }
+
+/* line 76, src/styles.scss */
+h1 {
+  color: black;
+  font-family: 'Lemon';
+  font-weight: 700;
+  font-size: 56px;
+  margin: 20px 0 62px 224px;
+  text-align: left; }
