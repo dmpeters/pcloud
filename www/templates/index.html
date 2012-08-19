@@ -1,13 +1,17 @@
 {% extends 'layouts/base.html' %}
 {% block base %}
 <div class="container">
-	<section class="logo">
+	<section id="logo">
 		<br />
 		<br />
 		<br />
 		<h1>PCLOUD</h1>
+		<div id="share">
+			<a href="https://twitter.com/intent/tweet?button_hashtag=pcloud&text=Get%20your%20photos%20from%20your%20favorite%20social%20networks%20with%20one%20click%20of%20a%20button!!!" class="twitter-hashtag-button" data-url="http://unkown.com">Tweet #pcloud</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
 		<p>
-			Hey....This is simple, you want your stuff...we get it for you.
+			Yo! It's pretty simple. Want your pics? We'll get them for you.
 		</p>
 		<br />
 		<br />
@@ -41,7 +45,7 @@
 	<section>
 		<div class="row">
 			<br />
-			<button id="done" href="" class="btn btn-success hide offset5">GO!!!</button>
+			<button id="done" href="" class="btn btn-success hide">GO!!!</button>
 		</div>
 	</section>
 </div>
