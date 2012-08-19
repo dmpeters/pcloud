@@ -47,6 +47,10 @@ Ppcloud.application = function() {
 	function showStartBtn() {
 		CACHE.$done.removeClass('hide');
 	}
+	
+	function hideStartBtn() {
+		CACHE.$done.addClass('hide');
+	}
 
 	function doStartDownload() {
 		data = {
@@ -66,6 +70,7 @@ Ppcloud.application = function() {
 			success: onFormSubmit
 		});
 		CACHE.$progress.removeClass('hide');
+		hideStartBtn();
 	}
 	
 	function onFormSubmit(data){
