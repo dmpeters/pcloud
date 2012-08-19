@@ -7,6 +7,7 @@ import gevent.monkey
 from collections import namedtuple
 
 gevent.monkey.patch_socket()
+gevent.monkey.patch_ssl()
 
 DownloadResource = namedtuple('DownloadResource', 'network url')
 
