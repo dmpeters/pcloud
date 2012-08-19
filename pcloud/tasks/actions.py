@@ -21,7 +21,9 @@ def get_photos(receipt, instagram=None, facebook=None):
 
     if instagram:
         ig = container.Instagram(code=instagram)
-        #ig_photos += ig.get_photos()
+        ig_photos += ig.get_photos()
+    
+    print photos
     
     dl = DownloadService(notify)
     dl.start(photos, receipt)
