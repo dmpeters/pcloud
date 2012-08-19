@@ -1,6 +1,6 @@
 var Ppcloud = Ppcloud || {};
 
-Ppcloud.facebook = function(spec, my) {
+Ppcloud.facebook = function() {
 	var my = my || {};
 	var self = {};
 
@@ -26,9 +26,11 @@ Ppcloud.facebook = function(spec, my) {
 
 	function doLogin() {
 		FB.login(function(response) {
+			
 			if (response.authResponse.accessToken) {
-				document.location = '/?fb_code=' + response.authResponse.accessToken;
+				//document.location = '/?fb_code=' + response.authResponse.accessToken;
 				//$('#facebook-btn').text("Sync'd");
+				self.onConnect(response.authResponse.accessToken)
 			} else if (response.session) {
 				alert("We are in a session");
 				//document.location = '/?ig_uid=' + response.session.id;
@@ -39,13 +41,13 @@ Ppcloud.facebook = function(spec, my) {
 			response_type : 'token'
 		});
 	}
+	
+	self.onConnect = function(){}
 
 	// do not delete //
 	__new__();
 	__init__();
-	//return self;
+	return self;
 	// #eo do not delete //
+	
 }
-$(function() {
-	Ppcloud.facebook()
-})

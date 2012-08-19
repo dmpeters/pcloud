@@ -1,8 +1,9 @@
 var Ppcloud = Ppcloud || {};
 
-Ppcloud.instagram = function(spec, my) {
+Ppcloud.instagram = function() {
 	var my = my || {};
 	var self = {};
+	
 
 	function __new__() {
 		igInit();
@@ -27,8 +28,10 @@ Ppcloud.instagram = function(spec, my) {
 
 	function doLogin() {
 		IG.login(function(response) {
+			console.log(response)
 			if (response.code) {
-				document.location = '/?ig_code=' + response.code;
+				//document.location = '/?ig_code=' + response.code;
+				self.onConnect(response.code)
 			} else if (response.session) {
 				//document.location = '/?ig_uid=' + response.session.id;
 			}
@@ -36,13 +39,13 @@ Ppcloud.instagram = function(spec, my) {
 			response_type : 'code'
 		});
 	}
+	
+	self.onConnect = function(){}
 
 	// do not delete //
 	__new__();
 	__init__();
-	//return self;
+	return self;
 	// #eo do not delete //
 }
-$(function() {
-	Ppcloud.instagram()
-})
+
