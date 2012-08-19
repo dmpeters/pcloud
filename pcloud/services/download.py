@@ -37,14 +37,14 @@ class DownloadService(dict):
             total = total + count
 
         meta['total'] = total
-        
+
         self.notify_service.send_notification('progress_meta', meta)
         pool = Pool(3)
         pool.map(self._fetch_image, resources)
 
         # start zipping and transfering to S3 here
         z = ZipS3()
-        zip_path = z.zip(self.local_path_arr,receipt)
+        zip_path = z.zip(self.local_path_arr, receipt)
         final_data = {'url': zip_path}
         self.notify_service.send_notification('finished', final_data)
 
@@ -59,11 +59,11 @@ class DownloadService(dict):
        # probz should pass the receipt here too so it could be:
        # proj_root/out/{{receipt}}/*
         os.mkdir('out')
-        local_path = 'out/{}'.format(filename) 
+        local_path = 'out/{}'.format(filename)
         self.local_path_arr.append(local_path)
         with open(local_path, 'w+') as f:
             f.write(response.read())
-        
+
         data = {'network': resource.network, 'url': resource.url}
         gevent.spawn(self.notify_service.send_notification, 'resource_complete', data)
         #self.notify_service.send_notification('resource_complete', data)
