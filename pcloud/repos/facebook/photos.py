@@ -12,7 +12,7 @@ class Facebook(object):
 	def get_photos(self):
 		
 		# Get Photos
-		fql_url = 'https://graph.facebook.com/fql?q=\
+		fql_url = 'http://graph.facebook.com/fql?q=\
 					SELECT+src_big+FROM+photo+WHERE+aid+IN+(\
 					SELECT+aid+FROM+album+WHERE+owner=me())\
 					&access_token={}'.format(self.token)
