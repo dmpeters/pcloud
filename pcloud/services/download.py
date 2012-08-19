@@ -5,17 +5,20 @@ import gevent
 from gevent.pool import Pool
 import gevent.monkey
 
-class DownloadService(obj):
+class DownloadService(dict):
     
-    def __init__(self, download_arr, receipt):
+    def __init__(self, download_arr, notify_service):
         self.download_arr = download_arr
-        self.receipt = receipt
+        self.notify_service = notify_service
+        self.pool = Pool(3)
         gevent.monkey.patch_socket()
     
     def start(self):
+        
         pass
+        
     
-    def _fetch_image(url):
+    def _fetch_image(self,url):
         src = url.replace('https', 'http')
         
         filename = os.path.basename(src)

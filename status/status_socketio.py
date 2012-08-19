@@ -1,5 +1,6 @@
 import logging
 import gevent
+import redis
 from socketio.namespace import BaseNamespace
 from socketio.sdjango import namespace
 
@@ -15,8 +16,22 @@ class StatusNamespace(BaseNamespace):
     def log(self, message):
         self.logger.info("[{0}] {1}".format(self.socket.sessid, message))
 
-    def on_register(self, receipt):
-        print('Receipt', receipt)
-        #self.emit('welcome', message)
+    def on_register(self, token):
+
+        self.redis_conn = redis.Redis()
+        pubsub = self.redis_conn.pubsub()
+
+        gevent.spawn(self.sub, pubsub, token)
 
         return True
+
+    def sub(self, pubsub, token):
+
+        pubsub.subscribe(token)
+
+        for msg in pubsub.listen():
+            data = msg['data']
+            print('Got Data from PubSub!', data)
+            print('attempting to emit!')
+            self.emit('message', data)
+            gevent.sleep(0)
