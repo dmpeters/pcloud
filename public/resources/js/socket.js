@@ -61,7 +61,7 @@ Ppcloud.socket = function(){
 	// payload {'url': 'http://pickup-your-shit/file.zip'}
 	function socketResourceReady(data){
 		// console.log('resource ready', data);
-		dispatcher.dispatcher(events.Ready, data);
+		dispatcher.dispatch(events.Ready, data);
 	}
 	
 	return __new__();
