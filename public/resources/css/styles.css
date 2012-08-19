@@ -4666,7 +4666,7 @@ html, body {
 
 /* line 70, src/styles.scss */
 body {
-  background: url(/resources/img/bg.png) no-repeat bottom center; }
+  background: #f2f2f2 url(/resources/img/bg.png) no-repeat top center; }
 
 /* line 71, src/styles.scss */
 p, span, button {

@@ -17,13 +17,14 @@ class Facebook(object):
 		
 		# s3 storage
 		conn = boto.connect_s3('{}','{}').format(self.as3_access, self.as3_secret)
-		bucket = conn.create_bucket('{}_pcloud').format(self.as3_access)
+		bucket = conn.create_bucket('{}_pcloud', location=Location.USWest).format(self.as3_access)
 		pkey = Key(bucket)
-		pkey = receipt
+		pkey = '{}'.format(receipt)
 		pkey.set_contents_from_file(zipped, replace=True, cb=None, num_cb=10)
 		
 		
 		''' 
 			generate_url(21600, method='GET') - ?
 			complete_upload()
+			
 		'''
