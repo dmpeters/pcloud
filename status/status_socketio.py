@@ -26,6 +26,10 @@ class StatusNamespace(BaseNamespace):
 
         return True
 
+    def recv_disconnect(self):
+        self.disconnect(silent=True)
+        return True
+
     def sub(self, pubsub, token):
 
         pubsub.subscribe(token)
