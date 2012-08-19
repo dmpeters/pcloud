@@ -9,7 +9,7 @@ from collections import namedtuple
 gevent.monkey.patch_socket()
 gevent.monkey.patch_ssl()
 
-DownloadResource = namedtuple('DownloadResource', 'network url')
+DownloadResource = namedtuple('DownloadResource', 'network url receipt')
 
 class DownloadService(dict):
 
@@ -27,7 +27,7 @@ class DownloadService(dict):
         # so we can know what kind of resource finished.
 
         for k, v in files.items():
-            resource = DownloadResource(network=k, url=v)
+            resource = DownloadResource(network=k, url=v, receipt=receipt)
             resources.append(resource)
             count = len(v)
             meta[k] = count
@@ -36,31 +36,30 @@ class DownloadService(dict):
         meta['total'] = total
         self.notify_service.send_notification('progress_meta', meta)
         pool = Pool(3)
-        pool.map(self._fetch_image, resources, receipt)
+        pool.map(self._fetch_image, resources)
 
         # start zipping and transfering to S3 here
         # ... do that ...
-        final_data = {'url': 'http://pick-up/your-shit/here.zip'}
-        self.notify_service.send_notification('finished', final_data)
+        #final_data = {'url': 'http://pick-up/your-shit/here.zip'}
+        #self.notify_service.send_notification('finished', final_data)
 
 
 
-    def _fetch_image(self, resource, receipt):
+    def _fetch_image(self, resource):
         src = resource.url
-
         #src = src.replace('https', 'http')
 
-        filename = os.path.basename(src)
-        response = urllib2.urlopen(src)
-
-        #where should this be saved?  right now it's just proj_root/out
-        # probz should pass the receipt here too so it could be:
-        # proj_root/out/{{receipt}}/*
-        with open('out/{}/{}'.format(receipt,filename), 'w+') as f:
-            f.write(response.read())
-
-        data = {'network': resource.network, 'url': url}
-        self.notify_service.send_notification('resource_complete', data)
+#        filename = os.path.basename(src)
+#        response = urllib2.urlopen(src)
+#
+#        #where should this be saved?  right now it's just proj_root/out
+#        # probz should pass the receipt here too so it could be:
+#        # proj_root/out/{{receipt}}/*
+#        with open('out/{}/{}'.format(receipt,filename), 'w+') as f:
+#            f.write(response.read())
+#
+#        data = {'network': resource.network, 'url': url}
+#        self.notify_service.send_notification('resource_complete', data)
 
 
 
