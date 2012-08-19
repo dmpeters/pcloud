@@ -6,42 +6,51 @@ Ppcloud.application = function() {
 	var fb, ig;
 	var fb_token = ''
 	var ig_code = ''
+	var pcloud_socket = Ppcloud.socket();
 
 	var CACHE = {
 		$done : $('#done'),
 		$progress : $('#progress')
 	}
 
-	function __new__() {
-		fb = Ppcloud.facebook()
-		fb.onConnect = onFbConnect
-		ig = Ppcloud.instagram()
-		ig.onConnect = onIgConnect
-	}
-
 	/* initialization */
 	function __init__() {
+		fb = Ppcloud.facebook()
+		ig = Ppcloud.instagram()
+		
+		fb.onConnect = onFbConnect
+		ig.onConnect = onIgConnect
+
 		CACHE.$done.on('click', function() {
-			doStartDownload()
-		})
+			doStartDownload();
+		});
+
+		pcloud_socket.on(Ppcloud.SocketEvents.Connected, onResourceConnected);		
+		pcloud_socket.on(Ppcloud.SocketEvents.Progress, onResourceProgress);
+		pcloud_socket.on(Ppcloud.SocketEvents.Complete, onResourceComplete);
+		pcloud_socket.on(Ppcloud.SocketEvents.Ready, onResourceReady);
 	}
 
 	function onFbConnect(c) {
 		fb_token = c
-		connected()
+		connected();
 	}
 
 	function onIgConnect(c) {
 		ig_code = c
-		connected()
+		connected();
 	}
 
 	function connected() {
-		showStartBtn()
+		showStartBtn();
 	}
 
 	function showStartBtn() {
-		CACHE.$done.removeClass('hide')
+		CACHE.$done.removeClass('hide');
+	}
+	
+	function hideStartBtn() {
+		CACHE.$done.addClass('hide');
 	}
 
 	function doStartDownload() {
@@ -51,26 +60,53 @@ Ppcloud.application = function() {
             'csrfmiddlewaretoken': $('form input[name="csrfmiddlewaretoken"]').val()
 		}
 
+		console.log('start download OK!', data);
+
+
 		//START SOCKET CONNECTION HERE!!!!!!
 		$.ajax({
 			type : 'POST',
 			url : '/',
 			data : data, 
-			success: onFormSubmit
+			success: onFormSubmit,
+			error: onFormSubmitError
 		});
-		CACHE.$progress.removeClass('hide')
+		CACHE.$progress.removeClass('hide');
+		hideStartBtn();
 	}
-	
-	function onFormSubmit(asdf){
-		console.log(asdf)
+	function onFormSubmitError(data){
+		console.log('form submit ERROR!', data);
+	}
+	function onFormSubmit(data){
+		
+		console.log('form submit OK!', data);
+
+		pcloud_socket.sendToken(data.token);
 	}
 
-	// do not delete //
-	__new__();
+	// ppcloud socket event delegates
+	function onResourceConnected(e){
+		var data = e.data;
+		console.log('resoucre connected!', data);
+	}
+	function onResourceProgress(e){
+		var data = e.data;
+		console.log('resource progress!', data);
+
+	}
+	function onResourceComplete(e){
+		var data = e.data;
+		console.log('resource complete!', data);
+	}
+	function onResourceReady(e){
+		var data = e.data;
+		console.log('resource ready!', data);
+	}
+
 	__init__();
-	//return self;
-	// #eo do not delete //
 }
+
+// run application
 $(function() {
 	Ppcloud.application()
 })
