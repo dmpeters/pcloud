@@ -26,7 +26,8 @@ Ppcloud.application = function() {
 			doStartDownload();
 		});
 
-		resourceSocket.on(resourceEvents.Connected, onResourceConnected);		
+		resourceSocket.on(resourceEvents.Connected, onResourceConnected);
+		resourceSocket.on(resourceEvents.MetaReceived, onResourceMetaReceived);		
 		resourceSocket.on(resourceEvents.Progress, onResourceProgress);
 		resourceSocket.on(resourceEvents.Ready, onResourceReady);
 	}
@@ -83,10 +84,25 @@ Ppcloud.application = function() {
 		var data = e.data;
 		console.log('resoucre connected!', data);
 	}
+	function onResourceMetaReceived(e){
+		console.log('resource meta received', data);
+
+		var jq_progress = CACHE.$progress.find('.progress');
+		jq_progress.removeClass('progress-striped').addClass('progress');
+	}
 	function onResourceProgress(e){
-		var data = e.data;
-		console.log('resource progress!', data);
-		console.log(data.percent);
+		var data        = e.data;
+		var percent     = data.percent * 100;
+		var jq_progress = CACHE.$progress.find('.progress');
+		var jq_bar      = CACHE.$progress.find('.bar');
+		
+		jq_bar.css({'width': percent + '%'});
+
+		// show busy bar (100%);
+		// on first progress update progress bar
+		// on 100% bring back to busy bar
+		// on ready kill loader
+		// display link
 	}
 	function onResourceReady(e){
 		var data = e.data;
