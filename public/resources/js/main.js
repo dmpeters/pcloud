@@ -61,8 +61,8 @@ Ppcloud.application = function() {
 		CACHE.$progress.removeClass('hide')
 	}
 	
-	function onFormSubmit(asdf){
-		console.log(asdf)
+	function onFormSubmit(data){
+		console.log(data);
 	}
 
 	// do not delete //
