@@ -16,7 +16,7 @@ djcelery.setup_loader()
 BROKER_URL = os.getenv('REDISTOGO_URL', 'redis://localhost:6379/0')
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-CELERY_IMPORTS = ('win8core.tasks.shows')
+CELERY_IMPORTS = ('pcloud.tasks.actions')
 
 
 REDIS_HOST = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
