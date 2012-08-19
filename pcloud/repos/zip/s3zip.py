@@ -1,4 +1,5 @@
 import os
+import shutil
 import tarfile
 import boto
 from boto.s3.key import Key
@@ -15,8 +16,10 @@ class ZipS3(object):
         for image in images:
             tar.add(image)
         tar.close()
+        
         for image in images:
             os.remove(image)
+        shutil.rmtree('out/'+receipt)
         
         conn = boto.connect_s3(settings.AWS_ACCESS_KEY_ID,settings.AWS_SECRET_ACCESS_KEY)
         bucket = conn.get_bucket(settings.AWS_STORAGE_BUCKET_NAME)
@@ -27,7 +30,6 @@ class ZipS3(object):
         response = 'https://s3.amazonaws.com/' +settings.AWS_STORAGE_BUCKET_NAME +'/' +zip_name
         
         os.remove(zip_path)
-        
         return response
         
         
