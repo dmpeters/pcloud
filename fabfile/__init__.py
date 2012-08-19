@@ -3,8 +3,11 @@ import css, heroku
 
 @task
 def run():
-    local('python manage.py runserver [::]:8000')
+    local('python manage.py runserver_socketio')
 
+@task
+def run_server_only():
+    local('python manage.py runserver [::]:8000')
 
 @task
 def reset():
