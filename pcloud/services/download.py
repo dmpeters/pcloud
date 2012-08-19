@@ -37,6 +37,11 @@ class DownloadService(dict):
         pool = Pool(3)
         pool.map(self._fetch_image, resources, receipt)
 
+        # start zipping and transfering to S3 here
+        # ... do that ...
+        final_data = {'url': 'http://pick-up/your-shit/here.zip'}
+        self.notify_service.send_notification('finished', final_data)
+
 
 
     def _fetch_image(self, resource, receipt):
