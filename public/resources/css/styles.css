@@ -4661,19 +4661,27 @@ a.label:hover, a.badge:hover {
   visibility: hidden; }
 
 /* line 69, src/styles.scss */
+html, body {
+  height: 100%; }
+
+/* line 70, src/styles.scss */
+body {
+  background: url(/resources/img/bg.png) no-repeat bottom center; }
+
+/* line 71, src/styles.scss */
 p, span {
   font-family: 'Cabin', sans-serif; }
 
-/* line 71, src/styles.scss */
+/* line 72, src/styles.scss */
 .container {
   text-align: center; }
 
-/* line 72, src/styles.scss */
+/* line 73, src/styles.scss */
 .logo {
   background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
   margin: 0px auto; }
 
-/* line 76, src/styles.scss */
+/* line 77, src/styles.scss */
 h1 {
   color: black;
   font-family: 'Lemon';
