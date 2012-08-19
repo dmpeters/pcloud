@@ -1,2 +1,2 @@
-web: python manage.py runserver_socketio -b 0.0.0.0:80
+web: python manage.py runserver_socketio
 worker: python manage.py celery worker
