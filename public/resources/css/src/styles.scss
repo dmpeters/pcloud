@@ -68,9 +68,9 @@
 
 html, body{height: 100%;}
 body {background: url(/resources/img/bg.png) no-repeat bottom center;}
-p, span {font-family: 'Cabin', sans-serif;}
+p, span, button {font-family: 'Cabin', sans-serif;}
 .container {text-align: center;}
-.logo {
+#logo {
 	background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
 	margin: 0px auto;
 }
@@ -81,4 +81,7 @@ p, span {font-family: 'Cabin', sans-serif;}
 		font-size: 56px;
 		margin: 20px 0 62px 224px;
 		text-align: left;
+		text-transform: lowercase;
 	}
+#done {padding: 12px; font-size: 20px;}
+#share {position: relative; top: -42px; right: 194px;}

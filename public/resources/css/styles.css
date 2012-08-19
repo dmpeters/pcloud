@@ -4669,7 +4669,7 @@ body {
   background: url(/resources/img/bg.png) no-repeat bottom center; }
 
 /* line 71, src/styles.scss */
-p, span {
+p, span, button {
   font-family: 'Cabin', sans-serif; }
 
 /* line 72, src/styles.scss */
@@ -4677,7 +4677,7 @@ p, span {
   text-align: center; }
 
 /* line 73, src/styles.scss */
-.logo {
+#logo {
   background: url(/resources/img/pcloud.png) no-repeat scroll 476px top;
   margin: 0px auto; }
 
@@ -4688,4 +4688,16 @@ h1 {
   font-weight: 700;
   font-size: 56px;
   margin: 20px 0 62px 224px;
-  text-align: left; }
+  text-align: left;
+  text-transform: lowercase; }
+
+/* line 86, src/styles.scss */
+#done {
+  padding: 12px;
+  font-size: 20px; }
+
+/* line 87, src/styles.scss */
+#share {
+  position: relative;
+  top: -42px;
+  right: 194px; }
