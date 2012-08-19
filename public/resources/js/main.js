@@ -25,9 +25,10 @@ Ppcloud.application = function() {
 			doStartDownload();
 		});
 
-		pcloud_socket.on(Ppcloud.SocketEvents.Connected, function(data){
-			console.log('ppcloud socket connection OK!', data);
-		});
+		pcloud_socket.on(Ppcloud.SocketEvents.Connected, onResourceConnected);		
+		pcloud_socket.on(Ppcloud.SocketEvents.Progress, onResourceProgress);
+		pcloud_socket.on(Ppcloud.SocketEvents.Complete, onResourceComplete);
+		pcloud_socket.on(Ppcloud.SocketEvents.Ready, onResourceReady);
 	}
 
 	function onFbConnect(c) {
@@ -81,6 +82,25 @@ Ppcloud.application = function() {
 		console.log('form submit OK!', data);
 
 		pcloud_socket.sendToken(data.token);
+	}
+
+	// ppcloud socket event delegates
+	function onResourceConnected(e){
+		var data = e.data;
+		console.log('resoucre connected!', data);
+	}
+	function onResourceProgress(e){
+		var data = e.data;
+		console.log('resource progress!', data);
+
+	}
+	function onResourceComplete(e){
+		var data = e.data;
+		console.log('resource complete!', data);
+	}
+	function onResourceReady(e){
+		var data = e.data;
+		console.log('resource ready!', data);
 	}
 
 	__init__();
