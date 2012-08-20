@@ -8,6 +8,4 @@ Repo: https://github.com/dmpeters/pcloud
 
 Host: Heroku
 
-URL: http://ppcloud.herokuapp.com/
-
-Note: Socket issues when deploying on heroku - unfortunately we are still working on that...
+TEMP URL: http://ec2-50-19-60-1.compute-1.amazonaws.com/
