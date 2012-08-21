@@ -6,6 +6,6 @@ Team: The Kikitowns
 
 Repo: https://github.com/dmpeters/pcloud
 
-Host: Heroku
+Host: AWS
 
-TEMP URL: http://ec2-50-19-60-1.compute-1.amazonaws.com/
+URL: http://pcloud.io/
